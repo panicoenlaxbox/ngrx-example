@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import { TableWithServiceComponent } from './table-with-service/table-with-service.component';
+import { TableWithStoreComponent } from './table-with-store/table-with-store.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
@@ -15,6 +16,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
   declarations: [
     AppComponent,
     TableWithServiceComponent,
+    TableWithStoreComponent,
     PageNotFoundComponent,
     WelcomeComponent,
   ],
