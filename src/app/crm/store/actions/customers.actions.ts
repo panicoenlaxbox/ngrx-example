@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Customer } from './customer.model';
+import { Customer } from '../../models/customer.model';
 import { HttpErrorResponse } from '@angular/common/http';
 
 export const LOAD_CUSTOMERS = '[Customers] Load';

@@ -1,19 +1,18 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { Customer } from '../../store/customer.model';
+import { Customer } from '../../../models/customer.model';
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 import { Table } from 'primeng/table';
 import { Store } from '@ngrx/store';
-import * as fromCustomers from '../../store/customers.actions';
-import { CustomersState } from '../../store/customers.state';
-import { State, CrmState } from '../../store/reducers';
+import * as fromCustomers from '../../../store/actions/customers.actions';
+import { State } from '../../../store/reducers';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-customers',
-  templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.scss']
+  selector: 'app-customers-list',
+  templateUrl: './customers-list.component.html',
+  styleUrls: ['./customers-list.component.scss']
 })
-export class CustomersComponent implements OnInit, OnDestroy {
+export class CustomersListComponent implements OnInit, OnDestroy {
   dataSource: Customer[];
   data: Customer[];
   totalRecords: number;
@@ -47,7 +46,7 @@ export class CustomersComponent implements OnInit, OnDestroy {
       { field: 'address', header: 'Address' },
     ];
     this.table.sortField = this.frozenCols[0].field;
-    this.subscription$ = this.store.select((state: State) => state.crm.customers).subscribe((customers: CustomersState) => {
+    this.subscription$ = this.store.select((state: State) => state.crm.customers).subscribe(customers => {
       if (!customers.loaded || !this.onLazyLoadEvent) {
         return;
       }

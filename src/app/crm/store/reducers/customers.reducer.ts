@@ -1,14 +1,21 @@
-import * as fromCustomers from '../customers.actions';
-import { CustomersState } from '../customers.state';
+import * as fromCustomers from '../actions/customers.actions';
+import { Customer } from '../../models/customer.model';
 
-const initialState: CustomersState = {
+export interface State {
+    customers: Customer[];
+    loading: boolean;
+    loaded: boolean;
+    error: any;
+}
+
+const initialState: State = {
     customers: [],
     loading: false,
     loaded: false,
     error: null
 };
 
-export function customersReducer(state = initialState, action: fromCustomers.CustomersActions): CustomersState {
+export function customersReducer(state = initialState, action: fromCustomers.CustomersActions): State {
     switch (action.type) {
         case fromCustomers.LOAD_CUSTOMERS:
             return {

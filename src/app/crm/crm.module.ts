@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CrmRoutingModule } from './crm-routing.module';
-import { CustomersComponent } from './containers/customers/customers.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/reducers';
-import { CustomersEffects } from './store/customers.effects';
+import { CustomersEffects } from './store/effects/customers.effects';
 import { CrmComponent } from './crm.component';
 import { TableModule } from 'primeng/table';
+import { CustomersListComponent } from './components/containers/customers-list/customers-list.component';
 
 
 @NgModule({
@@ -19,6 +19,6 @@ import { TableModule } from 'primeng/table';
     StoreModule.forFeature('crm', reducers),
     EffectsModule.forFeature([CustomersEffects]),
   ],
-  declarations: [CrmComponent, CustomersComponent],
+  declarations: [CrmComponent, CustomersListComponent],
 })
 export class CrmModule { }
