@@ -2,7 +2,7 @@ import * as fromCustomers from '../actions/customers.actions';
 import { Customer } from '../../models/customers/customer.model';
 
 export interface State {
-    customers: Customer[];
+    data: Customer[];
     first: number;
     rows: number;
     totalRecords: number;
@@ -12,7 +12,7 @@ export interface State {
 }
 
 const initialState: State = {
-    customers: [],
+    data: [],
     first: 0,
     rows: 0,
     totalRecords: 0,
@@ -25,7 +25,7 @@ export function customersReducer(state = initialState, action: fromCustomers.Cus
     switch (action.type) {
         case fromCustomers.LOAD_CUSTOMERS:
             return {
-                customers: [],
+                data: [],
                 totalRecords: 0,
                 first: action.payload.first,
                 rows: action.payload.rows,
@@ -35,7 +35,7 @@ export function customersReducer(state = initialState, action: fromCustomers.Cus
             };
         case fromCustomers.LOAD_CUSTOMERS_SUCCESS:
             return {
-                customers: action.payload.data,
+                data: action.payload.data,
                 totalRecords: action.payload.totalRecords,
                 first: state.first,
                 rows: state.rows,
@@ -45,7 +45,7 @@ export function customersReducer(state = initialState, action: fromCustomers.Cus
             };
         case fromCustomers.LOAD_CUSTOMERS_FAIL:
             return {
-                customers: [],
+                data: [],
                 totalRecords: 0,
                 first: 0,
                 rows: 0,
