@@ -5,6 +5,7 @@ import { map, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CustomersService } from '../../services/customers.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CustomersResponse } from '../../models/customers/customers-response.model';
 
 @Injectable()
 export class CustomersEffects {
@@ -13,10 +14,10 @@ export class CustomersEffects {
 
     @Effect()
     load$ = this.actions$.ofType(fromCustomers.LOAD_CUSTOMERS).pipe(
-        switchMap(() => {
-            return this.customersService.get().pipe(
-                map(customers => {
-                    return new fromCustomers.LoadCustomersSuccessAction(customers);
+        switchMap((action: fromCustomers.LoadCustomersAction) => {
+            return this.customersService.get(action.payload.first, action.payload.rows).pipe(
+                map((response: CustomersResponse) => {
+                    return new fromCustomers.LoadCustomersSuccessAction(response);
                 }),
                 catchError((error: HttpErrorResponse) => {
                     return of(new fromCustomers.LoadCustomersFailAction(error));

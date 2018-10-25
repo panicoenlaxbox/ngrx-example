@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { Customer } from '../../../models/customer.model';
+import { Customer } from '../../../models/customers/customer.model';
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 import { Table } from 'primeng/table';
 import { Store } from '@ngrx/store';
 import * as fromCustomers from '../../../store/actions/customers.actions';
 import { State } from '../../../store/reducers';
 import { Subscription } from 'rxjs';
+import { CustomersRequest } from 'src/app/crm/models/customers/customers-request.model';
 
 @Component({
   selector: 'app-customers-list',
@@ -13,7 +14,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./customers-list.component.scss']
 })
 export class CustomersListComponent implements OnInit, OnDestroy {
-  dataSource: Customer[];
   data: Customer[];
   totalRecords: number;
   loading = true;
@@ -43,13 +43,12 @@ export class CustomersListComponent implements OnInit, OnDestroy {
       { field: 'address', header: 'Address' }
     ];
     this.table.sortField = this.frozenCols[0].field;
-    this.subscription$ = this.store.select((state: State) => state.crm.customers).subscribe(customers => {
-      if (!customers.loaded || !this.onLazyLoadEvent) {
+    this.subscription$ = this.store.select((state: State) => state.crm.customers).subscribe(customersState => {
+      if (!customersState.loaded || !this.onLazyLoadEvent) {
         return;
       }
-      this.dataSource = customers.customers;
-      this.data = this.dataSource.slice(this.onLazyLoadEvent.first, this.onLazyLoadEvent.first + this.onLazyLoadEvent.rows);
-      this.totalRecords = this.dataSource.length;
+      this.data = customersState.customers;
+      this.totalRecords = customersState.totalRecords;
       this.loading = false;
     });
   }
@@ -73,7 +72,10 @@ export class CustomersListComponent implements OnInit, OnDestroy {
 
     setTimeout(() => {
       this.onLazyLoadEvent = event;
-      this.store.dispatch(new fromCustomers.LoadCustomersAction());
+      this.store.dispatch(new fromCustomers.LoadCustomersAction(<CustomersRequest>{
+        first: event.first,
+        rows: event.rows
+      }));
     }, 1000);
   }
 
