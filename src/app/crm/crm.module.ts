@@ -8,7 +8,6 @@ import { reducers } from './store/reducers';
 import { CrmComponent } from './crm.component';
 import { TableModule } from 'primeng/table';
 import { CustomersListComponent } from './components/containers/customers-list/customers-list.component';
-import { SuppliersListComponent } from './components/containers/suppliers-list/suppliers-list.component';
 import { Effects } from './store/effects';
 
 
@@ -20,6 +19,6 @@ import { Effects } from './store/effects';
     StoreModule.forFeature('crm', reducers),
     EffectsModule.forFeature(Effects),
   ],
-  declarations: [CrmComponent, CustomersListComponent, SuppliersListComponent],
+  declarations: [CrmComponent, CustomersListComponent],
 })
 export class CrmModule { }
