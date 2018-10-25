@@ -39,11 +39,8 @@ export class CustomersListComponent implements OnInit, OnDestroy {
       { field: 'name', header: 'Name' }
     ];
     this.scrollableCols = [
-      { field: 'age', header: 'Age' },
-      { field: 'company', header: 'Company' },
-      { field: 'email', header: 'Email' },
       { field: 'phone', header: 'Phone' },
-      { field: 'address', header: 'Address' },
+      { field: 'address', header: 'Address' }
     ];
     this.table.sortField = this.frozenCols[0].field;
     this.subscription$ = this.store.select((state: State) => state.crm.customers).subscribe(customers => {
