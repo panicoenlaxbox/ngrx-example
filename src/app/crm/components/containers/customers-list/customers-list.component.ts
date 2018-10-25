@@ -47,7 +47,7 @@ export class CustomersListComponent implements OnInit, OnDestroy {
       if (!customersState.loaded || !this.onLazyLoadEvent) {
         return;
       }
-      this.data = customersState.customers;
+      this.data = customersState.data;
       this.totalRecords = customersState.totalRecords;
       this.loading = false;
     });
