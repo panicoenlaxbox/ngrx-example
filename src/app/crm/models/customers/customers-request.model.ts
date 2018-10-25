@@ -1,5 +1,5 @@
+import { RequestBase } from '../request-base';
 
-export interface CustomersRequest {
-    first: number;
-    rows: number;
+// tslint:disable-next-line:no-empty-interface
+export interface CustomersRequest extends RequestBase {
 }
