@@ -9,6 +9,7 @@ import { CrmComponent } from './crm.component';
 import { TableModule } from 'primeng/table';
 import { CustomersListComponent } from './components/containers/customers-list/customers-list.component';
 import { Effects } from './store/effects';
+import { SuppliersListComponent } from './components/containers/suppliers-list/suppliers-list.component';
 
 
 @NgModule({
@@ -19,6 +20,6 @@ import { Effects } from './store/effects';
     StoreModule.forFeature('crm', reducers),
     EffectsModule.forFeature(Effects),
   ],
-  declarations: [CrmComponent, CustomersListComponent],
+  declarations: [CrmComponent, CustomersListComponent, SuppliersListComponent],
 })
 export class CrmModule { }
