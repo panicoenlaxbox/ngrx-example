@@ -29,7 +29,7 @@ export function customersReducer(state = initialState, action: fromSuppliers.Sup
                 totalRecords: 0,
                 first: action.payload.first,
                 rows: action.payload.rows,
-                loading: false,
+                loading: true,
                 loaded: false,
                 error: null
             };
