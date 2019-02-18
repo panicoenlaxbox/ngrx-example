@@ -26,9 +26,9 @@ export function customersReducer(state = initialState, action: fromSuppliers.Sup
         case fromSuppliers.LOAD_SUPPLIERS:
             return {
                 data: [],
-                totalRecords: 0,
                 first: action.payload.first,
                 rows: action.payload.rows,
+                totalRecords: 0,
                 loading: true,
                 loaded: false,
                 error: null
@@ -36,9 +36,9 @@ export function customersReducer(state = initialState, action: fromSuppliers.Sup
         case fromSuppliers.LOAD_SUPPLIERS_SUCCESS:
             return {
                 data: action.payload.data,
-                totalRecords: action.payload.totalRecords,
                 first: state.first,
                 rows: state.rows,
+                totalRecords: action.payload.totalRecords,
                 loading: false,
                 loaded: true,
                 error: null
@@ -46,9 +46,9 @@ export function customersReducer(state = initialState, action: fromSuppliers.Sup
         case fromSuppliers.LOAD_SUPPLIERS_FAIL:
             return {
                 data: [],
-                totalRecords: 0,
                 first: 0,
                 rows: 0,
+                totalRecords: 0,
                 loading: false,
                 loaded: true,
                 error: {
