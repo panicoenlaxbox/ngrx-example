@@ -26,7 +26,6 @@ export class SuppliersListComponent implements OnInit, OnDestroy {
   @ViewChild(Table)
   table: Table;
 
-  filterRowHeight = 50;
   subscription$: Subscription;
 
   constructor(private store: Store<State>) {
