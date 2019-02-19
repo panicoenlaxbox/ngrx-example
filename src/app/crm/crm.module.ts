@@ -10,6 +10,7 @@ import { TableModule } from 'primeng/table';
 import { CustomersListComponent } from './components/containers/customers-list/customers-list.component';
 import { Effects } from './store/effects';
 import { SuppliersListComponent } from './components/containers/suppliers-list/suppliers-list.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { SuppliersListComponent } from './components/containers/suppliers-list/s
     TableModule,
     StoreModule.forFeature('crm', reducers),
     EffectsModule.forFeature(Effects),
+    SharedModule
   ],
   declarations: [CrmComponent, CustomersListComponent, SuppliersListComponent],
 })
