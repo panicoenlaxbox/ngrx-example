@@ -1,7 +1,8 @@
-<p-table #dt [value]="data" [scrollable]="true" [rows]="20" scrollHeight="200px" [virtualScroll]="true" (onLazyLoad)="onLazyLoad($event)"
-  [lazy]="true" [totalRecords]="totalRecords" [virtualRowHeight]="28" [loading]="loading" [columns]="scrollableCols"
-  [frozenColumns]="frozenCols" [frozenWidth]="getFrozenWidth()" [lazyLoadOnInit]="true" [virtualScrollDelay]="0"
-  [rowTrackBy]="rowTrackBy" loadingIcon="fas fa-spinner" sortMode="multiple" [style]="{width:'1000px'}">
+<p-table #dt [value]="data" [scrollable]="true" [rows]="20" scrollHeight="200px" [virtualScroll]="true"
+  (onLazyLoad)="onLazyLoad($event)" [lazy]="true" [totalRecords]="totalRecords" [virtualRowHeight]="28"
+  [loading]="loading" [columns]="scrollableCols" [frozenColumns]="frozenCols" [frozenWidth]="getFrozenWidth()"
+  [lazyLoadOnInit]="true" [virtualScrollDelay]="0" [rowTrackBy]="rowTrackBy" loadingIcon="fas fa-spinner"
+  sortMode="multiple" [style]="{width:'1000px'}">
   <ng-template pTemplate="colgroup" let-columns>
     <colgroup>
       <col *ngFor="let col of columns" [style.width.px]="frozenColWidth">
@@ -11,8 +12,9 @@
     <tr>
       <th *ngFor="let col of columns" [pSortableColumn]="col.field">
         {{col.header}}
-        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order"
-          ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+        <p-sortIcon [field]="col.field" ariaLabel="Activate to sort"
+          ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order">
+        </p-sortIcon>
       </th>
     </tr>
   </ng-template>
@@ -24,4 +26,22 @@
     </tr>
   </ng-template>
 </p-table>
-<router-outlet></router-outlet>
+
+<hr>
+
+<button (click)="openModal('custom-modal-1')">Open Sergio</button>
+
+<app-modal id="custom-modal-1" [modal]="false">
+  <h1>Sergio</h1>
+  <button (click)="openModal('custom-modal-2')">Open Carmen</button>
+  <button (click)="closeModal('custom-modal-1');">Close</button>
+  <app-modal id="custom-modal-2" [modal]="false" [offset]="0">
+    <h1>Carmen</h1>
+    <button (click)="openModal('custom-modal-3')">Open Jimena</button>
+    <button (click)="closeModal('custom-modal-2');">Close</button>
+    <app-modal id="custom-modal-3" [offset]="50">
+      <h1>Jimena</h1>
+      <button (click)="closeModal('custom-modal-3');">Close</button>
+    </app-modal>
+  </app-modal>
+</app-modal>

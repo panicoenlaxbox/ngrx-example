@@ -7,6 +7,7 @@ import * as fromCustomers from '../../../store/actions/customers.actions';
 import { State } from '../../../store/reducers';
 import { Subscription } from 'rxjs';
 import { CustomersRequest } from 'src/app/crm/models/customers/customers-request.model';
+import { ModalService } from 'src/app/shared/modal.service';
 
 @Component({
   selector: 'app-customers-list',
@@ -28,7 +29,7 @@ export class CustomersListComponent implements OnInit, OnDestroy {
 
   subscription$: Subscription;
 
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<State>, private modalService: ModalService) {
 
   }
 
@@ -80,5 +81,13 @@ export class CustomersListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription$.unsubscribe();
+  }
+
+  openModal(id: string) {
+    this.modalService.open(id);
+  }
+
+  closeModal(id: string) {
+    this.modalService.close(id);
   }
 }
