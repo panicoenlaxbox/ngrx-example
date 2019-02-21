@@ -9,7 +9,6 @@ import { CrmComponent } from './crm.component';
 import { TableModule } from 'primeng/table';
 import { CustomersListComponent } from './components/containers/customers-list/customers-list.component';
 import { Effects } from './store/effects';
-import { SuppliersListComponent } from './components/containers/suppliers-list/suppliers-list.component';
 import { SharedModule } from '../shared/shared.module';
 
 
@@ -22,6 +21,6 @@ import { SharedModule } from '../shared/shared.module';
     EffectsModule.forFeature(Effects),
     SharedModule
   ],
-  declarations: [CrmComponent, CustomersListComponent, SuppliersListComponent],
+  declarations: [CrmComponent, CustomersListComponent],
 })
 export class CrmModule { }
