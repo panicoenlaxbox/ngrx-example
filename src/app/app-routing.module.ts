@@ -6,6 +6,7 @@ import { WelcomeComponent } from './core/welcome/welcome.component';
 const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'crm', loadChildren: './crm/crm.module#CrmModule' },
+  { path: 'stock', loadChildren: './stock/stock.module#StockModule' },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

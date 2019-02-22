@@ -35,12 +35,13 @@ export class ModalComponent implements OnInit, OnDestroy {
 
   public opened = false;
 
+  fn_listen: () => void;
+
   // tslint:disable-next-line: max-line-length
   constructor(@Inject(DOCUMENT) private document: any, private modalService: ModalService, private el: ElementRef, private renderer: Renderer2, @Optional() @SkipSelf() private parent: ModalComponent) {
   }
 
   ngOnInit(): void {
-    // ensure id attribute exists
     if (!this.id) {
       console.error('modal must have an id');
       return;
@@ -50,8 +51,8 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.renderer.appendChild(this.document.body, this.el.nativeElement);
 
     // close modal on background click
-    this.renderer.listen(this.el.nativeElement, 'click', (e: any) => {
-      if (e.target.className === 'jw-modal') {
+    this.fn_listen = this.renderer.listen(this.el.nativeElement, 'click', (e: any) => {
+      if (e.target.className === 'app-modal') {
         this.close(true);
       }
     });
@@ -60,20 +61,22 @@ export class ModalComponent implements OnInit, OnDestroy {
     this.modalService.add(this);
   }
 
-  // remove self from modal service when directive is destroyed
   ngOnDestroy(): void {
-    this.modalService.remove(this.id);
+    // remove listener
+    if (this.fn_listen) {
+      this.fn_listen();
+    }
     this.renderer.destroyNode(this.el.nativeElement);
+    this.modalService.remove(this.id);
   }
 
-  // open modal
   open(zIndex: number): void {
     this.zIndex = zIndex;
     this.opened = true;
     // this.renderer.setStyle(this.el.nativeElement, "display", "block");
     this.display = 'block';
     if (!this.parent) {
-      this.renderer.addClass(this.document.body, 'jw-modal-open');
+      this.renderer.addClass(this.document.body, 'app-modal-open');
     } else {
       this.parent.showModalBackground = false;
       this.position();
@@ -101,7 +104,6 @@ export class ModalComponent implements OnInit, OnDestroy {
     return parseInt(getComputedStyle(modal.body.nativeElement).width, 10);
   }
 
-  // close modal
   close(dismissed: boolean = false): void {
     if (dismissed && this.modal) {
       return;

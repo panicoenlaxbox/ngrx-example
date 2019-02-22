@@ -10,10 +10,10 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [WelcomeComponent, PageNotFoundComponent]
 })
 export class CoreModule {
-  /* make sure CoreModule is imported only by one NgModule the AppModule */
-  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
-    if (parentModule) {
-      throw new Error('CoreModule is already loaded. Import only in AppModule');
-    }
-  }
+  // /* make sure CoreModule is imported only by one NgModule the AppModule */
+  // constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
+  //   if (parentModule) {
+  //     throw new Error('CoreModule is already loaded. Import only in AppModule');
+  //   }
+  // }
 }
