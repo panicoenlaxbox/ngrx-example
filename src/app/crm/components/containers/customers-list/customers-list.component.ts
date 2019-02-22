@@ -4,10 +4,11 @@ import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 import { Table } from 'primeng/table';
 import { Store } from '@ngrx/store';
 import * as fromCustomers from '../../../store/actions/customers.actions';
-import { State } from '../../../store/reducers';
+import { CrmFeatureState, getCustomersState } from '../../../store/reducers';
 import { Subscription } from 'rxjs';
 import { CustomersRequest } from 'src/app/crm/models/customers/customers-request.model';
 import { ModalService } from 'src/app/shared/modal.service';
+import { CustomersState } from 'src/app/crm/store/reducers/customers.reducer';
 
 @Component({
   selector: 'app-customers-list',
@@ -29,7 +30,7 @@ export class CustomersListComponent implements OnInit, OnDestroy {
 
   subscription$: Subscription;
 
-  constructor(private store: Store<State>, private modalService: ModalService) {
+  constructor(private store: Store<CrmFeatureState>, private modalService: ModalService) {
 
   }
 
@@ -43,12 +44,12 @@ export class CustomersListComponent implements OnInit, OnDestroy {
       { field: 'address', header: 'Address' }
     ];
     this.table.sortField = this.frozenCols[0].field;
-    this.subscription$ = this.store.select((state: State) => state.crm.customers).subscribe(customersState => {
-      if (!customersState.loaded || !this.onLazyLoadEvent) {
+    this.subscription$ = this.store.select(getCustomersState).subscribe((state: CustomersState) => {
+      if (!state.pagination.loading.loaded || !this.onLazyLoadEvent) {
         return;
       }
-      this.data = customersState.data;
-      this.totalRecords = customersState.totalRecords;
+      this.data = state.data;
+      this.totalRecords = state.pagination.totalRecords;
       this.loading = false;
     });
   }
