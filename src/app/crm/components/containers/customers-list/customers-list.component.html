@@ -2,7 +2,8 @@
   (onLazyLoad)="onLazyLoad($event)" [lazy]="true" [totalRecords]="totalRecords" [virtualRowHeight]="28"
   [loading]="loading" [columns]="scrollableCols" [frozenColumns]="frozenCols" [frozenWidth]="getFrozenWidth()"
   [lazyLoadOnInit]="true" [virtualScrollDelay]="0" [rowTrackBy]="rowTrackBy" loadingIcon="fas fa-spinner"
-  sortMode="multiple" [style]="{width:'1000px'}">
+  sortMode="multiple" [style]="{width:'1000px'}" (onRowSelect)="onRowSelect($event)" dataKey="id" selectionMode="single"
+  [(selection)]="selectedCustomer">
   <ng-template pTemplate="colgroup" let-columns>
     <colgroup>
       <col *ngFor="let col of columns" [style.width.px]="frozenColWidth">
@@ -31,17 +32,6 @@
 
 <button (click)="openModal('custom-modal-1')">Open Sergio</button>
 
-<app-modal id="custom-modal-1" [modal]="false">
-  <h1>Sergio</h1>
-  <button (click)="openModal('custom-modal-2')">Open Carmen</button>
-  <button (click)="closeModal('custom-modal-1');">Close</button>
-  <app-modal id="custom-modal-2" [modal]="false" [offset]="0">
-    <h1>Carmen</h1>
-    <button (click)="openModal('custom-modal-3')">Open Jimena</button>
-    <button (click)="closeModal('custom-modal-2');">Close</button>
-    <app-modal id="custom-modal-3" [offset]="50">
-      <h1>Jimena</h1>
-      <button (click)="closeModal('custom-modal-3');">Close</button>
-    </app-modal>
-  </app-modal>
-</app-modal>
+<!-- <app-modal id="custom-modal-1" [modal]="false">
+  <app-customer></app-customer>
+</app-modal> -->
