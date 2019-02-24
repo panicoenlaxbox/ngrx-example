@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './core/reducers';
 import { CoreModule } from './core/core.module';
-import { StoreRouterConnectingModule, RouterStateSerializer } from '@ngrx/router-store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CustomSerializer as CustomRouterStateSerializer, getInitialRouterReducerState } from './core/reducers/router.reducer';
 
 @NgModule({
