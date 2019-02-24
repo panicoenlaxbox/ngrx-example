@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Customer } from '../../models/customers/customer.model';
+import { Customer } from '../models/customer.model';
 
 export const SELECT_CUSTOMER = '[Select] Customer';
 

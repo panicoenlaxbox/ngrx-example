@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { CrmFeatureState, getSelectionState } from 'src/app/crm/store/reducers';
 import { Subscription } from 'rxjs';
 import { SelectionState } from 'src/app/crm/store/reducers/selection.reducer';
-import { Customer } from 'src/app/crm/models/customers/customer.model';
+import { Customer } from 'src/app/crm/store/models/customer.model';
 
 @Component({
   selector: 'app-hero-date',

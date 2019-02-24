@@ -1,5 +1,5 @@
-import * as fromCustomers from '../actions/customers.actions';
-import { Customer } from '../../models/customers/customer.model';
+import * as fromCustomers from '../actions/customer.actions';
+import { Customer } from '../models/customer.model';
 import { Pagination } from 'src/app/shared/pagination';
 
 export interface CustomersState {

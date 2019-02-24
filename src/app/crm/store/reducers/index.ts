@@ -1,5 +1,5 @@
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromCustomers from './customers.reducer';
+import * as fromCustomers from './customer.reducer';
 import * as fromSelection from './selection.reducer';
 
 export interface CrmState {

@@ -1,4 +1,4 @@
-import { CustomersEffects } from './customers.effects';
+import { CustomersEffects } from './customer.effects';
 
 export const Effects = [
     CustomersEffects

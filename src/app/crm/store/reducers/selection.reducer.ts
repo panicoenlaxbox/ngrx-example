@@ -1,5 +1,5 @@
 import * as fromSelection from '../actions/selection.actions';
-import { Customer } from '../../models/customers/customer.model';
+import { Customer } from '../models/customer.model';
 
 export interface SelectionState {
   customer: Customer;
