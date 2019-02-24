@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ResponseBase } from '../models/response-base';
+import { ResponseBase } from './response-base';
 
 export abstract class ApiBaseService<TResponse extends ResponseBase<TItem>, TItem> {
     constructor(private http: HttpClient, private file: string) {

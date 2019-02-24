@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { Customer } from '../../../models/customers/customer.model';
+import { Customer } from '../../../store/models/customer.model';
 import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 import { Table } from 'primeng/table';
 import { Store } from '@ngrx/store';
-import * as fromCustomers from '../../../store/actions/customers.actions';
+import * as fromCustomers from '../../../store/actions/customer.actions';
 import * as fromSelection from '../../../store/actions/selection.actions';
 import { CrmFeatureState, getCustomersState } from '../../../store/reducers';
 import { Subscription } from 'rxjs';
 import { CustomersRequest } from 'src/app/crm/models/customers/customers-request.model';
 import { ModalService } from 'src/app/shared/modal.service';
-import { CustomersState } from 'src/app/crm/store/reducers/customers.reducer';
+import { CustomersState } from 'src/app/crm/store/reducers/customer.reducer';
 
 @Component({
   selector: 'app-customers-list',

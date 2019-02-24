@@ -1,6 +1,6 @@
 import { Actions, Effect } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import * as fromCustomers from '../actions/customers.actions';
+import * as fromCustomers from '../actions/customer.actions';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { CustomersService } from '../../services/customers.service';

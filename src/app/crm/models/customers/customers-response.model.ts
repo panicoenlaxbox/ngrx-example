@@ -1,5 +1,5 @@
-import { Customer } from './customer.model';
-import { ResponseBase } from '../response-base';
+import { Customer } from '../../store/models/customer.model';
+import { ResponseBase } from '../../../shared/response-base';
 
 export interface CustomersResponse extends ResponseBase<Customer> {
 }
