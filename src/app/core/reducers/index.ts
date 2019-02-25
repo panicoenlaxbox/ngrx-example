@@ -19,6 +19,8 @@ export const reducers: ActionReducerMap<RootState> = {
   router: routerReducer
 };
 
+export const getAppVersionState = createFeatureSelector<fromAppVersion.AppVersionState>('appVersion');
+
 export const getRouterReducerState = createFeatureSelector<RouterReducerState<RouterStateUrl>>('router');
 
 export const getRouterStateUrl = createSelector(

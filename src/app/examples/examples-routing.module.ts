@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GrandparentComponent } from './input-output-hell/grandparent/grandparent.component';
 import { Grandparent2Component } from './input-output-with-service/grandparent2/grandparent2.component';
+import { Grandparent3Component } from './input-output-with-store/grandparent3/grandparent3.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'input-output-hell' },
       { path: 'input-output-hell', component: GrandparentComponent },
-      { path: 'input-output-with-service', component: Grandparent2Component }
+      { path: 'input-output-with-service', component: Grandparent2Component },
+      { path: 'input-output-with-store', component: Grandparent3Component }
     ]
   }
 ];

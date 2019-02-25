@@ -1,0 +1,42 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ExamplesFeatureState, getCounterState } from '../../store/reducers';
+import { Store } from '@ngrx/store';
+import * as fromCounter from '../../store/actions/counter.actions';
+import { CounterState } from '../../store/reducers/counter.reducer';
+import { AppVersionState } from 'src/app/core/reducers/app.reducer';
+
+@Component({
+  selector: 'app-child3',
+  templateUrl: './child3.component.html',
+  styleUrls: ['./child3.component.css']
+})
+export class Child3Component implements OnInit, OnDestroy {
+  counter$: Subscription;
+  counter: number;
+
+  constructor(private store: Store<ExamplesFeatureState>) { }
+
+  ngOnInit() {
+    this.counter$ = this.store.select(getCounterState).subscribe((counter: CounterState) => {
+      this.counter = counter.value;
+    });
+
+    // TODO Hacer selector?
+    this.store.select(r => r.appVersion).subscribe((appVersion: AppVersionState) => {
+      console.log(appVersion.id, appVersion.name);
+    });
+  }
+
+  sum() {
+    this.store.dispatch(new fromCounter.IncrementCounterAction(this.counter + 1));
+  }
+
+  substract() {
+    this.store.dispatch(new fromCounter.DecrementCounterAction(this.counter - 1));
+  }
+
+  ngOnDestroy(): void {
+    this.counter$.unsubscribe();
+  }
+}

@@ -1,11 +1,12 @@
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromCustomers from './customer.reducer';
+import { RootState } from 'src/app/core/reducers';
 
 export interface CrmState {
     customers: fromCustomers.CustomersState;
 }
 
-export interface CrmFeatureState {
+export interface CrmFeatureState extends RootState {
     crm: CrmState;
 }
 
@@ -19,3 +20,12 @@ export const getCustomersState = createSelector(
     getCrmState,
     (state: CrmState) => state.customers
 );
+
+// TODO Mario, explicar una composición
+// export const getCustomersDataState = createSelector(
+//     getCrmState,
+//     getCustomersState,
+//     (state: CrmState, state2: fromCustomers.CustomersState) => {
+//         return state2.data;
+//     }
+// );

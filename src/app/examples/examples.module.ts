@@ -10,14 +10,21 @@ import { ChildComponent } from './input-output-hell/child/child.component';
 import { Grandparent2Component } from './input-output-with-service/grandparent2/grandparent2.component';
 import { Parent2Component } from './input-output-with-service/parent2/parent2.component';
 import { Child2Component } from './input-output-with-service/child2/child2.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './store/reducers';
+import { Grandparent3Component } from './input-output-with-store/grandparent3/grandparent3.component';
+import { Parent3Component } from './input-output-with-store/parent3/parent3.component';
+import { Child3Component } from './input-output-with-store/child3/child3.component';
 
 @NgModule({
-  declarations: [GrandparentComponent, ParentComponent, ChildComponent, Grandparent2Component, Parent2Component, Child2Component],
+// tslint:disable-next-line: max-line-length
+  declarations: [GrandparentComponent, ParentComponent, ChildComponent, Grandparent2Component, Parent2Component, Child2Component, Grandparent3Component, Parent3Component, Child3Component],
   imports: [
     CommonModule,
     ExamplesRoutingModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forFeature('examples', reducers),
   ]
 })
 export class ExamplesModule { }
