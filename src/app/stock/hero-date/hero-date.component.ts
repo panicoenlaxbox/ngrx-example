@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CounterService } from 'src/app/examples/input-output-with-service/counter.service';
+import { CounterService } from 'src/app/examples/example-service/counter.service';
 
 @Component({
   selector: 'app-hero-date',

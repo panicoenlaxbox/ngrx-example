@@ -13,6 +13,7 @@ export const reducers: ActionReducerMap<StockState> = {
   warehouses: fromWarehouse.reducer
 };
 
+// select en vez de get
 export const selectWarehouseState = createFeatureSelector<fromWarehouse.WarehouseState>('warehouses');
 
 export const selectWarehouseIds = createSelector(

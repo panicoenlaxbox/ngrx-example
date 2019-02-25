@@ -7,10 +7,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { reducers } from './store/reducers';
 import { CrmComponent } from './crm.component';
 import { TableModule } from 'primeng/table';
-import { CustomersListComponent } from './components/containers/customers-list/customers-list.component';
+import { CustomersListComponent } from './components/customers-list/customers-list.component';
 import { Effects } from './store/effects';
 import { SharedModule } from '../shared/shared.module';
-import { CustomerComponent } from './components/containers/customer/customer.component';
+import { CustomerComponent } from './components/customer/customer.component';
 
 
 @NgModule({
