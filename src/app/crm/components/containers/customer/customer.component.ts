@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { CrmFeatureState, getSelectionState } from 'src/app/crm/store/reducers';
+import { Store, select } from '@ngrx/store';
+import { CrmFeatureState, getCustomersState } from 'src/app/crm/store/reducers';
 import { Subscription } from 'rxjs';
-import { SelectionState } from 'src/app/crm/store/reducers/selection.reducer';
 import { Customer } from 'src/app/crm/store/models/customer.model';
+import { CustomersState } from 'src/app/crm/store/reducers/customer.reducer';
 
 @Component({
   selector: 'app-customer',
@@ -17,8 +17,8 @@ export class CustomerComponent implements OnInit, OnDestroy {
   constructor(private store: Store<CrmFeatureState>) { }
 
   ngOnInit() {
-    this.subscription$ = this.store.select(getSelectionState).subscribe((state: SelectionState) => {
-      this.customer = state.customer;
+    this.subscription$ = this.store.pipe(select(getCustomersState)).subscribe((state: CustomersState) => {
+      this.customer = state.selected;
     });
   }
 

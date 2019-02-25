@@ -1,10 +1,12 @@
 import * as fromCustomers from '../actions/customer.actions';
 import { Customer } from '../models/customer.model';
 import { Pagination } from 'src/app/shared/pagination';
+import { ACTIONS_SUBJECT_PROVIDERS } from '@ngrx/store/src/actions_subject';
 
 export interface CustomersState {
   data: Customer[];
   pagination: Pagination;
+  selected: Customer;
 }
 
 const initialState: CustomersState = {
@@ -18,7 +20,8 @@ const initialState: CustomersState = {
       loaded: false
     },
     error: null
-  }
+  },
+  selected: null
 };
 
 export function customersReducer(state = initialState, action: fromCustomers.CustomersActions): CustomersState {
@@ -64,6 +67,11 @@ export function customersReducer(state = initialState, action: fromCustomers.Cus
             url: action.payload.url
           }
         }
+      };
+    case fromCustomers.SELECT_CUSTOMER:
+      return {
+        ...state,
+        selected: action.payload
       };
     default:
       return state;

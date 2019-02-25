@@ -2,10 +2,12 @@ import { Action } from '@ngrx/store';
 import { HttpErrorResponse } from '@angular/common/http';
 import { CustomersResponse } from '../../models/customers/customers-response.model';
 import { CustomersRequest } from '../../models/customers/customers-request.model';
+import { Customer } from '../models/customer.model';
 
 export const LOAD_CUSTOMERS = '[Customers] Load';
 export const LOAD_CUSTOMERS_SUCCESS = '[Customers] Success';
 export const LOAD_CUSTOMERS_FAIL = '[Customers] Fail';
+export const SELECT_CUSTOMER = '[Customers] Select';
 
 export class LoadCustomersAction implements Action {
     readonly type = LOAD_CUSTOMERS;
@@ -22,4 +24,9 @@ export class LoadCustomersFailAction implements Action {
     constructor(public payload: HttpErrorResponse) { }
 }
 
-export type CustomersActions = LoadCustomersAction | LoadCustomersSuccessAction | LoadCustomersFailAction;
+export class SelectCustomerAction implements Action {
+    readonly type = SELECT_CUSTOMER;
+    constructor(public payload: Customer) { }
+}
+
+export type CustomersActions = LoadCustomersAction | LoadCustomersSuccessAction | LoadCustomersFailAction | SelectCustomerAction;
