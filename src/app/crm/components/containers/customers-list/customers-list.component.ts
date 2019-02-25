@@ -4,7 +4,6 @@ import { LazyLoadEvent } from 'primeng/components/common/lazyloadevent';
 import { Table } from 'primeng/table';
 import { Store } from '@ngrx/store';
 import * as fromCustomers from '../../../store/actions/customer.actions';
-import * as fromSelection from '../../../store/actions/selection.actions';
 import { CrmFeatureState, getCustomersState } from '../../../store/reducers';
 import { Subscription } from 'rxjs';
 import { CustomersRequest } from 'src/app/crm/models/customers/customers-request.model';
@@ -84,7 +83,7 @@ export class CustomersListComponent implements OnInit, OnDestroy {
   }
 
   onRowSelect(event: any) {
-    this.store.dispatch(new fromSelection.SelectCustomerAction(this.selectedCustomer));
+    this.store.dispatch(new fromCustomers.SelectCustomerAction(this.selectedCustomer));
   }
 
   ngOnDestroy(): void {

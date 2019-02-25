@@ -1,10 +1,8 @@
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromCustomers from './customer.reducer';
-import * as fromSelection from './selection.reducer';
 
 export interface CrmState {
     customers: fromCustomers.CustomersState;
-    selection: fromSelection.SelectionState;
 }
 
 export interface CrmFeatureState {
@@ -12,8 +10,7 @@ export interface CrmFeatureState {
 }
 
 export const reducers: ActionReducerMap<CrmState> = {
-    customers: fromCustomers.customersReducer,
-    selection: fromSelection.selectionReducer
+    customers: fromCustomers.customersReducer
 };
 
 export const getCrmState = createFeatureSelector<CrmFeatureState, CrmState>('crm');
@@ -21,9 +18,4 @@ export const getCrmState = createFeatureSelector<CrmFeatureState, CrmState>('crm
 export const getCustomersState = createSelector(
     getCrmState,
     (state: CrmState) => state.customers
-);
-
-export const getSelectionState = createSelector(
-  getCrmState,
-  (state: CrmState) => state.selection
 );
