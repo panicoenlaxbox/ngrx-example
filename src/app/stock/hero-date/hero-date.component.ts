@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { } from 'rxjs/operators';
 import { Customer } from 'src/app/crm/store/models/customer.model';
 import { CustomersState } from 'src/app/crm/store/reducers/customer.reducer';
+import { CounterService } from 'src/app/examples/input-output-with-service/counter.service';
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-hero-date',
@@ -12,19 +14,14 @@ import { CustomersState } from 'src/app/crm/store/reducers/customer.reducer';
   styleUrls: ['./hero-date.component.scss']
 })
 export class HeroDateComponent implements OnInit, OnDestroy {
-  subscription$: Subscription;
-  customer: Customer;
 
-  constructor(private store: Store<CrmFeatureState>) { }
+  constructor(private counterService: CounterService) { }
 
   ngOnInit() {
-    this.subscription$ = this.store.pipe(select(getCustomersState)).subscribe((state: CustomersState) => {
-      this.customer = state.selected;
-    });
+    console.log(this.counterService.getValue());
   }
 
   ngOnDestroy(): void {
-    this.subscription$.unsubscribe();
   }
 
 }
