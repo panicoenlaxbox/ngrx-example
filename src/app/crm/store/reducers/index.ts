@@ -14,10 +14,10 @@ export const reducers: ActionReducerMap<CrmState> = {
     customers: fromCustomers.customersReducer
 };
 
-export const getCrmState = createFeatureSelector<CrmFeatureState, CrmState>('crm');
+export const getCrmFeatureState = createFeatureSelector<CrmFeatureState, CrmState>('crm');
 
 export const getCustomersState = createSelector(
-    getCrmState,
+    getCrmFeatureState,
     (state: CrmState) => state.customers
 );
 

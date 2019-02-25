@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CustomersListComponent } from './components/containers/customers-list/customers-list.component';
+import { CustomersListComponent } from './components/customers-list/customers-list.component';
 
 const routes: Routes = [
   {

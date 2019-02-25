@@ -1,7 +1,10 @@
-<a [routerLink]="['/']">Home</a>
-<a [routerLink]="['/crm/customers']">Customers</a>
-<a [routerLink]="['/stock/']">Stock</a>
-<a [routerLink]="['/examples/input-output-hell']">Example with Input/Output</a>
-<a [routerLink]="['/examples/input-output-with-service']">Example with service</a>
-<a [routerLink]="['/examples/input-output-with-store']">Example with store</a>
+<ul>
+  <li><a [routerLink]="['/']">home</a></li>
+  <li><a [routerLink]="['/crm/customers']">crm/customers</a></li>
+  <li><a [routerLink]="['/stock']">stock</a></li>
+  <li><a [routerLink]="['/examples/example-input-output']">examples/example-input-output</a></li>
+  <li><a [routerLink]="['/examples/example-service']">examples/example-service</a></li>
+  <li><a [routerLink]="['/examples/example-ngrx']">examples/example-ngrx</a></li>
+</ul>
+
 <router-outlet></router-outlet>

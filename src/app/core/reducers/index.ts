@@ -2,12 +2,12 @@ import * as fromAppVersion from './app.reducer';
 import { environment } from 'src/environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { ActionReducerMap, MetaReducer, createFeatureSelector, createSelector } from '@ngrx/store';
-import { RouterStateUrl } from './router.reducer';
+import * as fromRouter from './router.reducer';
 import { RouterReducerState, routerReducer } from '@ngrx/router-store';
 
 export interface RootState {
   appVersion: fromAppVersion.AppVersionState;
-  router: RouterReducerState<RouterStateUrl>;
+  router: RouterReducerState<fromRouter.RouterStateUrl>;
 }
 
 export const metaReducers: MetaReducer<RootState>[] = !environment.production
@@ -21,7 +21,7 @@ export const reducers: ActionReducerMap<RootState> = {
 
 export const getAppVersionState = createFeatureSelector<fromAppVersion.AppVersionState>('appVersion');
 
-export const getRouterReducerState = createFeatureSelector<RouterReducerState<RouterStateUrl>>('router');
+export const getRouterReducerState = createFeatureSelector<RouterReducerState<fromRouter.RouterStateUrl>>('router');
 
 export const getRouterStateUrl = createSelector(
   getRouterReducerState,

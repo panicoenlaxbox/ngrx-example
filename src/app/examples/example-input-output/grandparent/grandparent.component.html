@@ -1,0 +1,8 @@
+<h3>Example @Input, @Output</h3>
+<p>Grandparent</p>
+<p>
+  <a (click)="add();">Sumar</a>
+  <input type="text" required [(ngModel)]="counter">
+  <a (click)="substract();">Restar</a>
+  <app-parent [counter]="counter" (counterChanged)="onCounterChanged($event);"></app-parent>
+</p>

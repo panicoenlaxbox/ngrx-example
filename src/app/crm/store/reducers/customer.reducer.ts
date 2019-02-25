@@ -1,7 +1,6 @@
 import * as fromCustomers from '../actions/customer.actions';
 import { Customer } from '../models/customer.model';
 import { Pagination } from 'src/app/shared/pagination';
-import { ACTIONS_SUBJECT_PROVIDERS } from '@ngrx/store/src/actions_subject';
 
 export interface CustomersState {
   data: Customer[];
