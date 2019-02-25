@@ -1,0 +1,7 @@
+<p>Grandparent</p>
+<p>
+  <a (click)="sum();">Sumar</a>
+  <input type="text" required [(ngModel)]="counter">
+  <a (click)="substract();">Restar</a>
+  <app-parent [counter]="counter" (counterChanged)="onCounterChanged($event);"></app-parent>
+</p>

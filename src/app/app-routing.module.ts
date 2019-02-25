@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'crm', loadChildren: './crm/crm.module#CrmModule' },
   { path: 'stock', loadChildren: './stock/stock.module#StockModule' },
+  { path: 'examples', loadChildren: './examples/examples.module#ExamplesModule' },
   { path: '', redirectTo: '/welcome', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

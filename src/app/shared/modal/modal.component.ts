@@ -66,7 +66,7 @@ export class ModalComponent implements OnInit, OnDestroy {
     if (this.fn_listen) {
       this.fn_listen();
     }
-    this.renderer.destroyNode(this.el.nativeElement);
+    this.renderer.removeChild(this.document.body, this.el.nativeElement);
     this.modalService.remove(this.id);
   }
 
