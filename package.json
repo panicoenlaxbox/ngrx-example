@@ -30,6 +30,7 @@
     "primeicons": "^1.0.0",
     "primeng": "^6.1.5",
     "rxjs": "~6.2.0",
+    "rxjs-observable-store": "^1.0.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },

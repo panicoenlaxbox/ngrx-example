@@ -1,0 +1,6 @@
+<p>Child</p>
+<p>
+  <a (click)="componentStore.incrementCounter();">Sumar</a>
+  <input type="text" [ngModel]="(componentStore.state$ | async).counter">
+  <a (click)="componentStore.decrementCounter();">Restar</a>
+</p>
