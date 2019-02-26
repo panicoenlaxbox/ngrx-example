@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import * as fromCounter from '../../store/actions/counter.actions';
 import { CounterState } from '../../store/reducers/counter.reducer';
 import { AppVersionState } from 'src/app/core/reducers/app.reducer';
+import { getAppVersionState } from 'src/app/core/reducers';
 
 @Component({
   selector: 'app-child3',
@@ -22,8 +23,9 @@ export class Child3Component implements OnInit, OnDestroy {
       this.counter = counter.value;
     });
 
-    // TODO Hacer selector?
-    this.store.select(r => r.appVersion).subscribe((appVersion: AppVersionState) => {
+    // TODO Hacer selector? => Mario: Usar selector del reducer asociado a la parte del estado que quieres leer
+    // getAppVersionState de src/app/core/reducers
+    this.store.select(getAppVersionState).subscribe((appVersion: AppVersionState) => {
       console.log(appVersion.id, appVersion.name);
     });
   }
