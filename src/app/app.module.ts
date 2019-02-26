@@ -15,6 +15,7 @@ import { reducers, metaReducers } from './core/reducers';
 import { CoreModule } from './core/core.module';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CustomSerializer as CustomRouterStateSerializer, getInitialRouterReducerState } from './core/reducers/router.reducer';
+import { RootStore } from './core/global-store/root.store';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,6 @@ import { CustomSerializer as CustomRouterStateSerializer, getInitialRouterReduce
       logOnly: environment.production
     }),
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

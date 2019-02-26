@@ -1,0 +1,8 @@
+<h3>Example Observable Store</h3>
+<p>Grandparent</p>
+<p>
+  <a (click)="componentStore.incrementCounter();">Sumar</a>
+  <input type="text" required [ngModel]="(componentStore.state$ | async).counter">
+  <a (click)="componentStore.decrementCounter();">Restar</a>
+  <app-parent4></app-parent4>
+</p>

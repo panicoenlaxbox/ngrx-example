@@ -22,8 +22,9 @@ export class Parent3Component implements OnInit, OnDestroy {
     this.counter$ = this.store.select(getCounterState).subscribe((counter: CounterState) => {
       this.counter = counter.value;
     });
-    
-    // TODO Hacer selector? => Usar selector del reducer asociado a la parte del estado que quieres leer
+
+    // TODO Hacer selector? => Mario: Usar selector del reducer asociado a la parte del estado que quieres leer
+    // getAppVersionState de src/app/core/reducers
     this.store.select(getAppVersionState).subscribe((appVersion: AppVersionState) => {
       console.log(appVersion.id, appVersion.name);
     });
