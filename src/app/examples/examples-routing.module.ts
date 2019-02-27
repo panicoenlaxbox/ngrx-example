@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GrandparentComponent } from './example-input-output/grandparent/grandparent.component';
-import { Grandparent2Component } from './example-service/grandparent2/grandparent2.component';
-import { Grandparent3Component } from './example-ngrx/grandparent3/grandparent3.component';
-import { Grandparent4Component } from './example-store-service/grandparent4/grandparent4.component';
-import { Grandparent5Component } from './example-ngxs/grandparent5/grandparent5.component';
+import { GrandparentComponent } from './example-input-output/components/grandparent/grandparent.component';
+import { Grandparent2Component } from './example-service/components/grandparent2/grandparent2.component';
+import { Grandparent3Component } from './example-ngrx/components/grandparent3/grandparent3.component';
+import { Grandparent4Component } from './example-store-service/components/grandparent4/grandparent4.component';
+import { Grandparent5Component } from './example-ngxs/components/grandparent5/grandparent5.component';
 
 const routes: Routes = [
   {

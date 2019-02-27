@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Store, Select } from '@ngxs/store';
-import { DecrementCounter, IncrementCounter, ExampleState2 } from '../../state/example.state';
-import { AppVersionState } from 'src/app/core/state/appversion.state';
+import { AppVersionState } from 'src/app/core/store/state/appversion.state';
 import { Observable } from 'rxjs';
+import { Store, Select } from '@ngxs/store';
+import { IncrementCounter, DecrementCounter, ExampleState2 } from '../../store/example.state';
 
 @Component({
-  selector: 'app-child5',
-  templateUrl: './child5.component.html',
-  styleUrls: ['./child5.component.css']
+  selector: 'app-parent5',
+  templateUrl: './parent5.component.html',
+  styleUrls: ['./parent5.component.css']
 })
-export class Child5Component implements OnInit {
+export class Parent5Component implements OnInit {
 
   constructor(private store: Store) { }
 
