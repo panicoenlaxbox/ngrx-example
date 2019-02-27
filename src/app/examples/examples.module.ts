@@ -18,16 +18,22 @@ import { Child3Component } from './example-ngrx/child3/child3.component';
 import { Grandparent4Component } from './example-store-service/grandparent4/grandparent4.component';
 import { Parent4Component } from './example-store-service/parent4/parent4.component';
 import { Child4Component } from './example-store-service/child4/child4.component';
+import { Grandparent5Component } from './example-ngxs/grandparent5/grandparent5.component';
+import { Parent5Component } from './example-ngxs/parent5/parent5.component';
+import { Child5Component } from './example-ngxs/child5/child5.component';
+import { NgxsModule } from '@ngxs/store';
+import { ExampleState2 } from './state/example.state';
 
 @NgModule({
 // tslint:disable-next-line: max-line-length
-  declarations: [GrandparentComponent, ParentComponent, ChildComponent, Grandparent2Component, Parent2Component, Child2Component, Grandparent3Component, Parent3Component, Child3Component, Grandparent4Component, Parent4Component, Child4Component],
+  declarations: [GrandparentComponent, ParentComponent, ChildComponent, Grandparent2Component, Parent2Component, Child2Component, Grandparent3Component, Parent3Component, Child3Component, Grandparent4Component, Parent4Component, Child4Component, Grandparent5Component, Parent5Component, Child5Component],
   imports: [
     CommonModule,
     ExamplesRoutingModule,
     SharedModule,
     FormsModule,
     StoreModule.forFeature('examples', reducers),
+    NgxsModule.forFeature([ExampleState2])
   ]
 })
 export class ExamplesModule { }
