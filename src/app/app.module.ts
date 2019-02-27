@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +13,11 @@ import { reducers, metaReducers } from './core/reducers';
 import { CoreModule } from './core/core.module';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { CustomSerializer as CustomRouterStateSerializer, getInitialRouterReducerState } from './core/reducers/router.reducer';
-import { RootStore } from './core/global-store/root.store';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { AppVersionState } from './core/state/appversion.state';
+
 
 @NgModule({
   declarations: [
@@ -29,12 +31,19 @@ import { RootStore } from './core/global-store/root.store';
     HttpClientModule,
     CoreModule,
     StoreModule.forRoot(reducers, { metaReducers, initialState: getInitialRouterReducerState() }),
+    NgxsModule.forRoot([
+      AppVersionState
+    ]),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot({serializer: CustomRouterStateSerializer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
     }),
+    NgxsReduxDevtoolsPluginModule.forRoot({
+      maxAge: 25
+    }),
+    NgxsLoggerPluginModule.forRoot()
   ],
   bootstrap: [AppComponent]
 })
