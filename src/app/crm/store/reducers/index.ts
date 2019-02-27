@@ -1,6 +1,6 @@
 import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromCustomers from './customer.reducer';
-import { RootState } from 'src/app/core/reducers';
+import { RootState } from 'src/app/core/store/reducers';
 
 export interface CrmState {
     customers: fromCustomers.CustomersState;

@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CounterService } from '../counter.service';
-import { Observable, Subscription } from 'rxjs';
+import { CounterService } from '../../counter.service';
+import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-child2',
-  templateUrl: './child2.component.html',
-  styleUrls: ['./child2.component.css']
+  selector: 'app-parent2',
+  templateUrl: './parent2.component.html',
+  styleUrls: ['./parent2.component.css']
 })
-export class Child2Component implements OnInit, OnDestroy {
+export class Parent2Component implements OnInit, OnDestroy {
   counter$: Subscription;
   counter: number;
 

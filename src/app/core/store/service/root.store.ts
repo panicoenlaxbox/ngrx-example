@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from 'rxjs-observable-store';
-import { RootState } from './root.state';
+
+// State definition to its own file
+export class RootState {
+    appVersion: { version: number, name: string } = { version: 1, name: 'example' };
+}
 
 @Injectable({providedIn: 'root'})
 export class RootStore extends Store<RootState> {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RootStore } from 'src/app/core/global-store/root.store';
-import { ExampleStore } from '../../component-store/example.store';
+import { RootStore } from 'src/app/core/store/service/root.store';
+import { ExampleStore } from '../../store/example.store';
 
 @Component({
   selector: 'app-parent4',

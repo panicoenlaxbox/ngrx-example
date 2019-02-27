@@ -1,15 +1,15 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import { AppVersionState } from 'src/app/core/state/appversion.state';
+import { DecrementCounter, IncrementCounter, ExampleState2 } from '../../store/example.state';
+import { AppVersionState } from 'src/app/core/store/state/appversion.state';
 import { Observable } from 'rxjs';
-import { IncrementCounter, DecrementCounter, ExampleState2 } from '../../state/example.state';
 
 @Component({
-  selector: 'app-grandparent5',
-  templateUrl: './grandparent5.component.html',
-  styleUrls: ['./grandparent5.component.css']
+  selector: 'app-child5',
+  templateUrl: './child5.component.html',
+  styleUrls: ['./child5.component.css']
 })
-export class Grandparent5Component implements OnInit {
+export class Child5Component implements OnInit {
 
   constructor(private store: Store) { }
 
@@ -27,4 +27,5 @@ export class Grandparent5Component implements OnInit {
   substract() {
     this.store.dispatch(new DecrementCounter());
   }
+
 }

@@ -4,15 +4,15 @@ import { ExamplesFeatureState, getCounterState } from '../../store/reducers';
 import { Store } from '@ngrx/store';
 import * as fromCounter from '../../store/actions/counter.actions';
 import { CounterState } from '../../store/reducers/counter.reducer';
-import { AppVersionState } from 'src/app/core/reducers/app.reducer';
-import { getAppVersionState } from 'src/app/core/reducers';
+import { AppVersionState } from 'src/app/core/store/reducers/app.reducer';
+import { getAppVersionState } from 'src/app/core/store/reducers';
 
 @Component({
-  selector: 'app-parent3',
-  templateUrl: './parent3.component.html',
-  styleUrls: ['./parent3.component.css']
+  selector: 'app-child3',
+  templateUrl: './child3.component.html',
+  styleUrls: ['./child3.component.css']
 })
-export class Parent3Component implements OnInit, OnDestroy {
+export class Child3Component implements OnInit, OnDestroy {
   counter$: Subscription;
   counter: number;
 
