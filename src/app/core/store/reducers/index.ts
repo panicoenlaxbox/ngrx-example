@@ -27,3 +27,8 @@ export const getRouterStateUrl = createSelector(
   getRouterReducerState,
   state => state.state
 );
+
+export const getAppVersionId = createSelector(
+  getAppVersionState,
+  state => state.id
+);
