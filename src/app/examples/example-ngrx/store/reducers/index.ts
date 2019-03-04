@@ -10,8 +10,6 @@ export interface ExamplesState {
     counter: fromCounter.CounterState;
 }
 
-// TODO Mario, siempre se inyecta en un módulo lazy el feature state?
-// nunca algo mayor (RootState) ni tampoco menor, siempre Feature State y acceso por selectores?
 export interface ExamplesFeatureState extends RootState {
     examples: ExamplesState;
 }

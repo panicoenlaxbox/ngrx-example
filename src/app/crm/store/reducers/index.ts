@@ -20,12 +20,3 @@ export const getCustomersState = createSelector(
     getCrmFeatureState,
     (state: CrmState) => state.customers
 );
-
-// TODO Mario, explicar una composición
-// export const getCustomersDataState = createSelector(
-//     getCrmState,
-//     getCustomersState,
-//     (state: CrmState, state2: fromCustomers.CustomersState) => {
-//         return state2.data;
-//     }
-// );
